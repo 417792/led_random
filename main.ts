@@ -1,3 +1,9 @@
+let x = 0
+let y = 0
+let b = 0
+let a = 0
+let list: number[] = []
+let n = 0
 function 燈數 (num: number) {
     if (num % 5 == 0) {
         x = 4
@@ -6,7 +12,7 @@ function 燈數 (num: number) {
         x = num % 5 - 1
         y = Math.floor(num / 5)
     }
-    led.plot(x, y)
+    led.plotBrightness(x, y, randint(50, 225))
 }
 input.onButtonPressed(Button.A, function () {
     b += 1
@@ -20,25 +26,17 @@ input.onButtonPressed(Button.B, function () {
         a = 0
     }
 })
-let n = 0
-let list: number[] = []
-let a = 0
-let b = 0
-let y = 0
-let x = 0
-let _0 = 0
-let _1 = 1
 basic.forever(function () {
     basic.clearScreen()
     list = []
     for (let index = 0; index < 25; index++) {
-        list.push(_0)
+        list.push(0)
     }
     n = 0
     while (n < b) {
         a = randint(0, 24)
         if (list[a] == 0) {
-            list[a] = _1
+            list[a] = 1
             n += 1
             燈數(a + 1)
         }
